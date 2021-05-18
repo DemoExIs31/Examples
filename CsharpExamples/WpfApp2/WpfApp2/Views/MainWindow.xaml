@@ -1,0 +1,46 @@
+﻿<Window x:Class="WpfApp2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp2"
+        mc:Ignorable="d"
+        Title="Some title" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="195"/>
+        </Grid.ColumnDefinitions>
+        <DataGrid
+            x:Name="UsersDataGrid"
+            AutoGenerateColumns="False"
+            SelectedItem="{Binding SelectedModel}"
+            ItemsSource="{Binding Users}">
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    Header="Name"
+                    Binding="{Binding Name}"/>
+                <DataGridTextColumn 
+                    Header="Middle Name"
+                    Binding="{Binding MIddleName}"/>
+                <DataGridTextColumn
+                    Header="Last Name"
+                    Binding="{Binding LastName}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Grid
+            Grid.Column="1">
+            <StackPanel
+                Margin="10">
+                <Button
+                    x:Name="AddUserButton"
+                    Content="Add new user"
+                    Click="AddUserButton_Click"/>
+                <Button
+                    x:Name="DeleteUserButton"
+                    Content="delete user"
+                    Click="DeleteUserButton_Click"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
